@@ -7,28 +7,24 @@ using rclcpp::IntrospectionUtils;
 
 IntrospectionUtils::IntrospectionUtils(
         rcl_node_t * rcl_node_ptr,
-        const rclcpp::node_interfaces::NodeParametersInterface::SharedPtr& node_parameters)
-: rcl_node_ptr_(rcl_node_ptr),
-  node_parameters_(node_parameters)
+        rclcpp::node_interfaces::NodeParametersInterface::SharedPtr & node_parameters)
+: rcl_node_ptr_(rcl_node_ptr)
 {
-
-// TODO(ihasdapie): Use parameter #defines in rcl/introspection.h
-
   // declare service introspection parameters
-  if (!node_parameters_->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_PARAMETER)) {
-    node_parameters_->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_PARAMETER,
+  if (!node_parameters->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_PARAMETER)) {
+    node_parameters->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_PARAMETER,
         rclcpp::ParameterValue(true));
   }
-  if (!node_parameters_->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_EVENT_CONTENT_PARAMETER)) {
-    node_parameters_->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_EVENT_CONTENT_PARAMETER,
+  if (!node_parameters->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_EVENT_CONTENT_PARAMETER)) {
+    node_parameters->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_SERVICE_EVENT_CONTENT_PARAMETER,
         rclcpp::ParameterValue(true));
   }
-  if (!node_parameters_->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_PARAMETER)) {
-    node_parameters_->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_PARAMETER,
+  if (!node_parameters->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_PARAMETER)) {
+    node_parameters->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_PARAMETER,
         rclcpp::ParameterValue(true));
   }
-  if (!node_parameters_->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_EVENT_CONTENT_PARAMETER)) {
-    node_parameters_->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_EVENT_CONTENT_PARAMETER,
+  if (!node_parameters->has_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_EVENT_CONTENT_PARAMETER)) {
+    node_parameters->declare_parameter(RCL_SERVICE_INTROSPECTION_PUBLISH_CLIENT_EVENT_CONTENT_PARAMETER,
         rclcpp::ParameterValue(true));
   }
 

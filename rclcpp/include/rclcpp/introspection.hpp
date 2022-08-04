@@ -40,11 +40,11 @@ class IntrospectionUtils
 
     explicit IntrospectionUtils(
         rcl_node_t * rcl_node_ptr,
-        const rclcpp::node_interfaces::NodeParametersInterface::SharedPtr& node_parameters);
+        rclcpp::node_interfaces::NodeParametersInterface::SharedPtr & node_parameters);
     
     explicit IntrospectionUtils(
         const rclcpp::node_interfaces::NodeBaseInterface::SharedPtr & node_base,
-        const rclcpp::node_interfaces::NodeParametersInterface::SharedPtr& node_parameters)
+        rclcpp::node_interfaces::NodeParametersInterface::SharedPtr& node_parameters)
       : IntrospectionUtils(node_base->get_rcl_node_handle(), node_parameters){};
 
     virtual ~IntrospectionUtils();
