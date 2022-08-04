@@ -102,6 +102,7 @@ NodeOptions::get_rcl_node_options() const
     node_options_->use_global_arguments = this->use_global_arguments_;
     node_options_->enable_rosout = this->enable_rosout_;
     node_options_->rosout_qos = this->rosout_qos_.get_rmw_qos_profile();
+    node_options_->enable_service_introspection = this->enable_service_introspection_;
 
     int c_argc = 0;
     std::unique_ptr<const char *[]> c_argv;
