@@ -37,7 +37,6 @@ namespace rclcpp
 class IntrospectionUtils
 {
   public:
-
     explicit IntrospectionUtils(
         rcl_node_t * rcl_node_ptr,
         rclcpp::node_interfaces::NodeParametersInterface::SharedPtr & node_parameters);
@@ -51,19 +50,11 @@ class IntrospectionUtils
     void register_service(const rclcpp::ServiceBase::SharedPtr& service);
     void register_client(const rclcpp::ClientBase::SharedPtr& client);
 
-
-    
   private:
     std::vector<rcl_service_t *> services;
     std::vector<rcl_client_t *> clients;
     rcl_node_t * rcl_node_ptr_;
-    std::shared_ptr<rclcpp::node_interfaces::NodeParametersInterface> node_parameters_;
+    node_interfaces::PostSetParametersCallbackHandle::SharedPtr post_set_parameters_callback_handle_;
 };
-  
-
-
-
-
-
 } // namespace rclcpp
 #endif // RCLCPP__INTROSPECTION_HPP_

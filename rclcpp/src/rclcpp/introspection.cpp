@@ -60,13 +60,10 @@ IntrospectionUtils::IntrospectionUtils(
         }
       }
     };
-
   // register callbacks
-  node_parameters_->add_post_set_parameters_callback(configure_service_introspection_callback);
+  post_set_parameters_callback_handle_ = node_parameters->add_post_set_parameters_callback(configure_service_introspection_callback);
+
 }
-
-// IntrospectionUtils::~IntrospectionUtils();
-
 
 // Alternatively this wrapper can be made to wrap a create_client call?
 
@@ -80,10 +77,4 @@ void IntrospectionUtils::register_client(
   this->clients.push_back(client->get_client_handle().get());
 }
 
-
-    
-
 IntrospectionUtils::~IntrospectionUtils() = default;
-
-
-
