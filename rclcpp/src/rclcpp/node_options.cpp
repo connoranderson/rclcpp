@@ -237,6 +237,7 @@ NodeOptions::enable_service_introspection() const
 
 NodeOptions &
 NodeOptions::enable_service_introspection(bool enable_service_introspection) {
+  this->node_options_.reset();  // reset node options to make it be recreated on next access.
   this->enable_service_introspection_ = enable_service_introspection;
   return *this;
 }
